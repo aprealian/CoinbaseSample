@@ -10,12 +10,15 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.android.parcel.Parcelize
+import kotlinx.coroutines.launch
+import me.aprilian.coinbasesample.data.Coin
 import me.aprilian.coinbasesample.databinding.FragmentHomeBinding
 import me.aprilian.coinbasesample.databinding.ItemWatchlistBinding
 import javax.inject.Inject
@@ -42,7 +45,7 @@ class HomeFragment : Fragment() {
         binding.adapter = adapter
         //Coin.getSample().let { adapter.submitList(it) }
         homeViewModel.getCoins().let { adapter.submitList(it) }
-        homeViewModel.loadUsers()
+        //homeViewModel.loadUsers()
     }
 
     companion object {
@@ -51,48 +54,26 @@ class HomeFragment : Fragment() {
     }
 }
 
-class WatchListAdapter : ListAdapter<Coin, WatchListAdapter.UserViewHolder>(Companion) {
+class WatchListAdapter : ListAdapter<Coin, WatchListAdapter.CoinViewHolder>(Companion) {
 
-    class UserViewHolder(val binding: ItemWatchlistBinding) : RecyclerView.ViewHolder(binding.root)
+    class CoinViewHolder(val binding: ItemWatchlistBinding) : RecyclerView.ViewHolder(binding.root)
 
     companion object: DiffUtil.ItemCallback<Coin>() {
         override fun areItemsTheSame(oldItem: Coin, newItem: Coin): Boolean = oldItem === newItem
         override fun areContentsTheSame(oldItem: Coin, newItem: Coin): Boolean = oldItem.id == newItem.id
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CoinViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ItemWatchlistBinding.inflate(layoutInflater)
 
-        return UserViewHolder(binding)
+        return CoinViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CoinViewHolder, position: Int) {
         val currentCoin = getItem(position)
         holder.binding.coin = currentCoin
         holder.binding.executePendingBindings()
-    }
-}
-
-@Parcelize
-data class Coin(
-    val id: Long,
-    val name: String,
-    val symbol: String,
-    val price: Long,
-    val growth: Double
-) : Parcelable {
-    companion object {
-        fun getSample(): ArrayList<Coin>{
-            return arrayListOf(
-                Coin(1, "Bitcoin", "BTC", 3000000, 2.67),
-                Coin(2, "DogeCoin", "DOGE", 30, 20.00),
-                Coin(3, "TRON", "TRX", 78, 20.00),
-                Coin(4, "Bitcoin", "BTC", 3000000, 2.67),
-                Coin(5, "DogeCoin", "DOGE", 30, 20.00),
-                Coin(6, "TRON", "TRX", 78, 20.00),
-            )
-        }
     }
 }
 
@@ -105,11 +86,11 @@ class HomeViewModel @Inject constructor(): ViewModel(){
         return coins
     }
 
-    fun loadUsers() {
+    private fun loadCoins() = viewModelScope.launch {
         coins.addAll(Coin.getSample())
     }
 
     init {
-        loadUsers()
+        loadCoins()
     }
 }

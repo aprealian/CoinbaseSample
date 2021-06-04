@@ -6,7 +6,7 @@
     <data>
         <variable
             name="coin"
-            type="me.aprilian.coinbasesample.data.Coin" />
+            type="me.aprilian.coinbasesample.data.LatestCoinResponse.Data" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
