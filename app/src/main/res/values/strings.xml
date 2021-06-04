@@ -2,4 +2,18 @@
     <string name="app_name">Coinbase Sample</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--Home-->
+    <string name="welcome_to_coinbase">Welcome to Coinbase!</string>
+    <string name="do_your_investation_today">Make your first investment today</string>
+    <string name="fund_account">Fund Account</string>
+    <string name="watchlist">Watchlist</string>
+
+    <!--Menus-->
+    <string name="home_menu_home">Home</string>
+    <string name="home_menu_portofolio">Portofolio</string>
+    <string name="home_menu_exchange">Exchange</string>
+    <string name="home_menu_price">Price</string>
+    <string name="home_menu_setting">Setting</string>
+
 </resources>

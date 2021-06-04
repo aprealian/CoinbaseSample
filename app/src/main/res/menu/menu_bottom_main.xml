@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_graph_home"
+        android:icon="@mipmap/ic_launcher_round"
+        android:title="@string/home_menu_home" />
+    <item
+        android:id="@+id/nav_graph_coin_detail"
+        android:icon="@mipmap/ic_launcher_round"
+        android:title="@string/home_menu_portofolio" />
+    <item
+        android:id="@+id/nav_graph_exchange"
+        android:icon="@mipmap/ic_launcher_round"
+        android:title="@string/home_menu_exchange" />
+    <item
+        android:id="@+id/nav_graph_price"
+        android:icon="@mipmap/ic_launcher_round"
+        android:title="@string/home_menu_price" />
+    <item
+        android:id="@+id/nav_graph_setting"
+        android:icon="@mipmap/ic_launcher_round"
+        android:title="@string/home_menu_setting" />
+</menu>
