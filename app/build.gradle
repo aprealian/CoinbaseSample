@@ -71,6 +71,22 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.coroutinesVersion"
     implementation "com.google.dagger:hilt-android:$rootProject.hiltVersion"
 
+
+    //Jetpack Compose
+    implementation "androidx.compose.ui:ui:$rootProject.composeUi"
+    implementation "androidx.compose.ui:ui-tooling:$rootProject.composeUiTooling"
+    implementation "androidx.compose.foundation:foundation::$rootProject.composeFoundation"
+    implementation "androidx.compose.material:material::$rootProject.composeMaterial"
+    implementation "androidx.compose.material:material-icons-core::$rootProject.composeMaterialIconsCore"
+    implementation "androidx.compose.material:material-icons-extended::$rootProject.composeMaterialIconsExtended"
+    implementation "androidx.activity:activity-compose::$rootProject.composeActivityCompose"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose::$rootProject.composeLifecycleViewmodel"
+    implementation "androidx.compose.runtime:runtime-livedata:$rootProject.composeRuntimeLivedata"
+    implementation "androidx.compose.runtime:runtime-rxjava2:$rootProject.composeRuntimeRxJava2"
+
+    //Jetpack UI Tests
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$rootProject.composeUiTestJunit4"
+
     // Testing dependencies
     kaptAndroidTest "com.google.dagger:hilt-android-compiler:$rootProject.hiltVersion"
     androidTestImplementation "androidx.arch.core:core-testing:$rootProject.coreTestingVersion"

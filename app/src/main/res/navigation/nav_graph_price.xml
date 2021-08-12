@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/price_dest"
-        android:name="me.aprilian.coinbasesample.scene.PriceFragment"
+        android:name="me.aprilian.coinbasesample.ui.PriceFragment"
         android:label="Price"
         tools:layout="@layout/fragment_price">
         <action
@@ -21,7 +21,7 @@
 
     <fragment
         android:id="@+id/coin_detail_dest"
-        android:name="me.aprilian.coinbasesample.scene.CoinDetailFragment"
+        android:name="me.aprilian.coinbasesample.ui.CoinDetailFragment"
         android:label="Coin Details"
         tools:layout="@layout/fragment_coin_detail" />
 

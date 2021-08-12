@@ -6,7 +6,7 @@
     <data>
         <variable
             name="adapter"
-            type="me.aprilian.coinbasesample.scene.WatchListAdapter" />
+            type="me.aprilian.coinbasesample.ui.WatchListAdapter" />
     </data>
 
     <androidx.core.widget.NestedScrollView

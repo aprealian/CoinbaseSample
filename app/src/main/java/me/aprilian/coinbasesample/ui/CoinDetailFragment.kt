@@ -1,4 +1,4 @@
-package me.aprilian.coinbasesample.scene
+package me.aprilian.coinbasesample.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater

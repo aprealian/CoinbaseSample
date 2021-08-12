@@ -1,4 +1,4 @@
-package me.aprilian.coinbasesample.scene
+package me.aprilian.coinbasesample.ui
 
 import android.content.Context
 import android.os.Bundle
@@ -40,7 +40,7 @@ class PriceFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initObserver()
-        initAdapter() 
+        initAdapter()
     }
 
     private fun initObserver(){
